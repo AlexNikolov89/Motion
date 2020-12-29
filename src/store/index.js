@@ -4,6 +4,6 @@ import {reducer} from './reducers/reducer';
 
 const store = createStore(
     reducer, 
-    applyMiddleware(thunk));
+    applyMiddleware(thunk),);
 
 export default store;

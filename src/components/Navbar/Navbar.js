@@ -34,7 +34,7 @@ const Navbar = () => {
                         <Posts>Posts</Posts>
                     </PostsContainer>
                     <FindContainer className='active'>
-                            <i class="fas fa-user-friends" />
+                            <i className="fas fa-user-friends" />
                             <Find>Frind Friends</Find>
                     </FindContainer>
                 </LeftSide>
