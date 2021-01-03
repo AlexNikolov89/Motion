@@ -1,7 +1,9 @@
-export const postAction = () => async (dispatch, getState) => {
-    //const {token} = getState()
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjA5MzQ3MTk2LCJqdGkiOiI2NDhjN2UzZjY3MzU0OGZkYTBmZTE3OGZiNjc1ZmY3NiIsInVzZXJfaWQiOjE3Nn0.fjRBE5y9QCnaPzE6AXG0dArTaTPTQeb7ur1n3LA8w5A'
-    const url = 'https://motion.propulsion-home.ch/backend/api/social/posts/';
+import {baseUrl} from '../baseUrl'
+
+export const postAction = (token) => async (dispatch, getState) => {
+    //const token = getState(); 
+    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjA5ODEyNjM1LCJqdGkiOiIxMjg4NmMwNzc4Y2E0Y2E2ODM3ZjdhZjdjZDk1NGY2OCIsInVzZXJfaWQiOjE3Nn0.HmTXXdy9iDiqibGegbnZoNzul6lql_ViTo7iLiq9OJA'
+    const url = `${baseUrl}/social/posts/`;
     const config = {
         method: 'GET',
         headers: new Headers({

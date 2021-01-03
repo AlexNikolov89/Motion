@@ -3,9 +3,10 @@ import {Container, ContainerTop, Title, Button, FormContainer, Input, Form, Inpu
  TitleSignin, ButtonSignin} from '../../style/RightSide';
 import Avatar from '../../assets/svgs/avatar.svg';
 import Pass from '../../assets/svgs/password.svg';
-import {authAction} from '../../store/actions/authAction';
 import {useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
+import {baseUrl} from '../../store/baseUrl';
+import {authAction} from '../../store/actions/authAction'
 
 const RightSide = () => {
     const dispatch = useDispatch();
@@ -15,12 +16,22 @@ const RightSide = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const authResponse = await dispatch(authAction(email, password));
-        if (authResponse.access) {
-            history.push('/homepage');
-        } else {
-            return 'Error';
-        }
+        const url = `${baseUrl}/auth/token`;
+        const config = {
+            method: 'POST',
+            headers: new Headers({
+                "Content-Type": "application/json",
+        }),
+        body: JSON.stringify({ email, password }),
+        };
+        
+        fetch(url, config)
+            .then((res) => res.json())
+            .then((data) => {
+                dispatch(authAction(data.access));
+                localStorage.setItem('token', data.access);
+                history.push('/homepage');
+            })
     }
 
     const handleEmail = (e) => {

@@ -6,11 +6,7 @@ import {ThemeProvider} from 'styled-components';
 import {GlobalStyle, theme} from './style/index'
 import {Provider} from 'react-redux';
 import store from './store/index';
-import {setToken} from './store/actions/authAction';
 import {Routes} from './routes/index'
-
-const token = localStorage.getItem('token');
-store.dispatch(setToken(token));
 
 ReactDOM.render(
   <Provider store={store}>

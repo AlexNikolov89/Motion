@@ -24,7 +24,6 @@ export const ModalIntContainer = styled.section`
 	i {
 		cursor: pointer;
 		color: #fff;
-		font-size: ${props => props.theme.fontLarge};
 		position: absolute;
 		top: -25px;
 		right: -25px;
@@ -51,7 +50,6 @@ export const ContentSection = styled.section`
     }
 
 	textarea {
-		font-size: ${props => props.theme.fontMedium};
 		margin-top: 5px;
         margin-left: 18px;
 		overflow: hidden;
@@ -62,7 +60,6 @@ export const ContentSection = styled.section`
 `;
 
 export const ActionsModal = styled.section`
-	/* background-color: green; */
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -77,7 +74,6 @@ export const ActionsModal = styled.section`
 `;
 
 export const AttachmentsModal = styled.div`
-	/* background: red; */
     height: 100%;
 	width: 30%;
 	display: flex;

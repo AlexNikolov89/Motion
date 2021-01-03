@@ -35,7 +35,46 @@ export const ModalIntContainer = styled.div `
 export const ModalContainer = styled.div `
     display: flex;
     justify-content: center;
+    background: grey;
      i {
-         font-size: 20px;
-     }
+		 font-size: 25px;
+		 color: grey;
+		 position: absolute;
+		 left: 455px;
+		 top: 300px;
+		 background: lightgray;
+		 padding: 20px;
+		 border-radius: 100%;
+	 }
+	 
+	 h3 {
+		font-size: 20px;
+		position: absolute;
+		left: 350px;
+		font-weight: 600;
+		padding-top: 15px;
+	 }
+`;
+
+export const ButtonContainer = styled.div `
+	position: absolute;
+	bottom: 260px;
+	left: 380px;
+`;
+
+export const ButtonNo = styled.button `
+	padding: 5px 20px;
+	background-color: transparent;
+	border: 1px solid grey;
+	border-radius: 50px;
+	width: 100px; 
+	outline: none;
+
+	&:hover, &active {
+		background-color: #c468ff;
+	}
+`;
+
+export const ButtonYes = styled(ButtonNo) `
+	margin-left: 25px;
 `;
