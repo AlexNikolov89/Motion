@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import LogoImg from '../../assets/images/logo.png';
 import PostsImg from '../../assets/images/posts_logo.png';
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import Bell from '../../assets/svgs/notification_bell.svg';
 import Avatar from '../../assets/images/users/jennifer.png'
 import Menu from '../../assets/svgs/menu.svg'
@@ -14,26 +14,30 @@ import {Container, LeftSide, LogoContainer, LogoIcon, Logo,
         Profile, Logout, DropdownMenu} from '../../style/Navbar.js';
 
 const Navbar = () => {
-    
+    const history = useHistory()
     const [showDropdown, setShowDropdown] = useState(false);
 
     const dropdownHandler = () => {
         setShowDropdown(showDropdown => !showDropdown)
     }
 
+    const redirectHandler = () => {
+        history.push('/homepage')
+    }
+
     return (
         <Fragment>
             <Container>
                 <LeftSide>
-                    <LogoContainer>
+                    <LogoContainer onClick={redirectHandler}>
                         <LogoIcon src={LogoImg} />
                         <Logo>Motion</Logo>
                     </LogoContainer>
-                    <PostsContainer className='active'>
+                    <PostsContainer to='/homepage' className='active'>
                         <PostsIcon src={PostsImg} />
                         <Posts>Posts</Posts>
                     </PostsContainer>
-                    <FindContainer className='active'>
+                    <FindContainer to='/homepage/friends' className='active'>
                             <i className="fas fa-user-friends" />
                             <Find>Frind Friends</Find>
                     </FindContainer>

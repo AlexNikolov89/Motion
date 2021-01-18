@@ -15,8 +15,8 @@ export const newPostAction = (content) => async (dispatch, getState) => {
         body: JSON.stringify({content})
     };
     const response = await fetch(url, config);
-    console.log(response)
+    //console.log(response)
     const data = await response.json();
-    console.log(data)
+    //console.log(data)
     return data
 }

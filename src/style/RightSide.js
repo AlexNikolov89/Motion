@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container  = styled.div `
     width: 60%;
-    height: 100%;
+    height: 100vh;
 `;
 
 export const ContainerTop = styled.div `
@@ -39,7 +39,7 @@ export const FormContainer = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 150px 0;
+    
 `;
 
 export const TitleSignin = styled.h1 `
@@ -79,7 +79,7 @@ export const ButtonSignin = styled.button `
     justify-content: center;
     align-items: center;
     align-self: center;
-    margin-top: 167px;
+    //margin-top: 167px;
     justify-items: center;
     align-content: center;
     background: linear-gradient(132.96deg, #c468ff 3.32%, #6e91f6 100%);
@@ -89,10 +89,14 @@ export const ButtonSignin = styled.button `
     height: 60px;
     border: 2px solid rgba(200, 200, 200, 0.45);
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
-    margin-top: 10%;
+    margin-top: 60%;
     outline: none;
 
     &:hover {
         cursor: pointer;
     }
 `;
+
+export const ButtonSignUp = styled(ButtonSignin) `
+    margin-top: 30%;
+`

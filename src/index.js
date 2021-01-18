@@ -7,6 +7,12 @@ import {GlobalStyle, theme} from './style/index'
 import {Provider} from 'react-redux';
 import store from './store/index';
 import {Routes} from './routes/index'
+import { authAction } from './store/actions/authAction';
+
+const token = localStorage.getItem('token')
+if(token) {
+  store.dispatch(authAction(token));
+}
 
 ReactDOM.render(
   <Provider store={store}>

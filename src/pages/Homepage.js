@@ -14,11 +14,12 @@ const Homepage = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        const getData = async () => {
-            const data = await dispatch(postAction());
-            setPosts(data);
+        const fetchPosts = async () => {
+        const data = await dispatch(postAction());
+        setPosts(data);
+
         };
-        getData()
+        fetchPosts()
     }, [])
         
     return (
@@ -27,10 +28,9 @@ const Homepage = () => {
             <SearchBar />
             <PostsWrapper>
                 <NewPost />
-                {posts.length
-					? posts.map(post => <Posts post={post} key={post.id} />)
-					: <Spinner />}
-
+                {posts.length ? posts.map(
+                    post => <Posts post={post} key={post.id} />
+                    ) : <Spinner />}
             </PostsWrapper>
         </Fragment>
     )

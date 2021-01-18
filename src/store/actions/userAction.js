@@ -1,23 +1,18 @@
 import {USER_INFO} from './actionTypes'
+import {baseUrl} from '../baseUrl'
 
-export const userAction = (token = null) => async (dispatch, getState) => {
-    const userToken = token ? token : getState().user.token;
-
-    const url = 'https://motion.propulsion-home.ch/backend/api/users/me/';
+export const userAction = (userInfo) => async (dispatch, getState) => {
+    const { token } = getState().authReducer;
+    const url = `${baseUrl}/users/me/`;
     const config = {
         method: 'GET',
         headers: new Headers ({
             Accept: 'application/json',
-            Authorization: `Bearer ${userToken}`,
+            Authorization: `Bearer ${token}`,
         }),
     };
-    const res = await fetch(url, config);
-    const data = await res.json();
-    dispatch({
-        type: USER_INFO,
-        payload: {
-            user: data,
-            token: userToken,
-        },
-    });
+    const resp = await fetch(url, config);
+    const data = await resp.json();
+    console.log("🚀 ~ file: userAction.js ~ line 16 ~ userAction ~ data", data)
+    return data
 };

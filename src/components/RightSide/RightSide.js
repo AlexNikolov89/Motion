@@ -3,35 +3,38 @@ import {Container, ContainerTop, Title, Button, FormContainer, Input, Form, Inpu
  TitleSignin, ButtonSignin} from '../../style/RightSide';
 import Avatar from '../../assets/svgs/avatar.svg';
 import Pass from '../../assets/svgs/password.svg';
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import {baseUrl} from '../../store/baseUrl';
-import {authAction} from '../../store/actions/authAction'
+import {authAction, setUser} from '../../store/actions/authAction'
 
 const RightSide = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const token = useSelector(state => state.token)
 
-    const handleSubmit = async e => {
+    const handleSubmit = e => {
         e.preventDefault();
-        const url = `${baseUrl}/auth/token`;
+        
         const config = {
             method: 'POST',
-            headers: new Headers({
+            headers: new Headers ({
                 "Content-Type": "application/json",
-        }),
-        body: JSON.stringify({ email, password }),
+            }),
+            body: JSON.stringify({email, password})
         };
-        
-        fetch(url, config)
-            .then((res) => res.json())
-            .then((data) => {
+        fetch(`${baseUrl}/auth/token/`, config)
+            .then(response => response.json())
+            .then(data => {
+                //console.log(data)
                 dispatch(authAction(data.access));
+                dispatch(setUser(data.user))
                 localStorage.setItem('token', data.access);
-                history.push('/homepage');
+                history.push('/homepage')
             })
+
     }
 
     const handleEmail = (e) => {
@@ -45,10 +48,10 @@ const RightSide = () => {
     return (
         <Fragment>
             <Container>
-                <ContainerTop>
+                {/*<ContainerTop>
                     <Title>Don't have an account?</Title>
-                    <Button>SIGN UP</Button>
-                </ContainerTop>
+                    <Button onClick={handleClick}>SIGN UP</Button>
+                </ContainerTop>*/}
                 <FormContainer>
                     <Form onSubmit={handleSubmit}>
                         <TitleSignin>Sign In</TitleSignin>
@@ -68,7 +71,7 @@ const RightSide = () => {
                                     onChange={handlePassword}
                                     required />
                         </InputPass>
-                        <ButtonSignin >SIGN IN</ButtonSignin>
+                        <ButtonSignin>SIGN IN</ButtonSignin>
                     </Form>
                 </FormContainer>
             </Container>

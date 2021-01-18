@@ -9,19 +9,11 @@ const authReducer = (state=initialState, action) => {
     switch (action.type) {
         case USER_LOGIN: {
             const token = action.payload;
-            console.log('in authReducer: ', token);
-            return {...state, token: token}
+            return {...state, token};
         }
-        case SET_USER: {
-            const newState = {...state};
-            newState.token = action.payload[0];
-            newState.user = action.payload[1];
-            return newState;
-        }
-        case SET_TOKEN: {
-            const newState = {...state}
-            newState.token = action.payload;
-            return newState;
+        case 'USER_DATA': {
+            const user = action.payload;
+            return {...state, user }
         }
         case USER_LOGOUT: {
             console.log('clear local storage');

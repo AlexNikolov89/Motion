@@ -8,12 +8,12 @@ import {PostContainer, TopContainer, UserContainer, Avatar, UserDetails, UserInf
         LikeIcon, Title, ShareContainer, ShareIcon, RightSide, NumLikes, DeleteContainer} from '../../style/Posts.js'
 import { useState } from 'react/cjs/react.development';
 import DeleteModal from '../DeleteModal/DeleteModal'
-
+import defaultAvatar from '../../assets/images/users/alber.png'
 
 const Posts = ({post}) => {
     //console.log(post)
     const [showModal, setShowModal] = useState(false)
-
+    const [avatar, setAvatar] = useState(defaultAvatar)
     const showModalHandler = () => {
         setShowModal(showModal => !showModal)
     }
@@ -24,7 +24,7 @@ const Posts = ({post}) => {
             <PostContainer>
             <TopContainer>
                 <UserContainer>
-                    <Avatar src={post.user.avatr} />
+                    {avatar && <Avatar src={post.user.avatr} />}
                     <UserDetails>
                         <UserInfo>{post.user.username}</UserInfo>
                         <DateTime>{post.created}</DateTime>

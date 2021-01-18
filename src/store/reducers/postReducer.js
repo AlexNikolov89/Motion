@@ -1,25 +1,25 @@
-import {GET_POSTS_ALL, CREATE_NEW_POST} from '../actions/actionTypes'
+import {GET_POSTS_ALL, CREATE_NEW_POST, DELETE_POST} from '../actions/actionTypes'
 
 const initialState = {
-    getAllPosts: [],
-    newPost: null,
-    specificPost: null,
+    posts: [],
 }
 
 export default function postReducer (state=initialState, action) {
     switch (action.type) {
         case GET_POSTS_ALL: {
-            const newState = {...state}
-            newState.getAllPosts = action.payload
-            return newState
+            return {...state, posts: action.payload}
         }
         case CREATE_NEW_POST: {
-            const newState = {...state}
-            newState.newPost = action.payload
+            return {...state, posts: [action.payload, ...state.posts]}
+        }
+        case DELETE_POST: {
+            const newState = Obect.assing({}, state);
+            newState = state.findIndex(post => {
+                return post.id == action.post.id
+            })
             return newState
         }
-        default: {
+        default:
             return state
-        }
     }
 }

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import {Link} from 'react-router-dom'
+
 
 export const Container = styled.div `
     height: 80px;
@@ -29,15 +31,10 @@ export const Logo = styled.h2 `
     margin-left: 10px;
 `;
 
-export const PostsContainer = styled(LogoContainer) `
-    /* border-bottom: 2px solid #AD73FD;
-        &:hover, &:active {
-            font-weight: bold;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #AD73FD;
-        } */
-
-
+export const PostsContainer = styled(Link) `
+    display: flex;
+    margin-left: 60px;
+    cursor: pointer;
 `;
 
 export const PostsIcon = styled.img `
@@ -48,8 +45,11 @@ export const Posts = styled(Logo) `
     font-size: 18px;
 `;
 
-export const FindContainer = styled(LogoContainer) `
-    
+export const FindContainer = styled(Link) `
+    display: flex;
+    margin-left: 60px;
+    cursor: pointer;
+
     i {
         color: grey;
         font-size: 20px;

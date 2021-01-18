@@ -4,15 +4,14 @@ import { useHistory } from 'react-router-dom';
 
 export const authHOC = (WrappedComponent) => {
     return () => {
-        const token = useSelector((state) => state.user.token);
-        console.log('in authHOC, token: ', token)
-
+        const token = useSelector(state => state.token)
         const history = useHistory();
-        if (token) {
-            return <WrappedComponent />;
+
+        if(token) {
+            return <WrappedComponent />
         } else {
-            history.push('/login');
-            return null;
+            history.push('/')
         }
     }
+
 }
