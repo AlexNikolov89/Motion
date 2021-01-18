@@ -1,3 +1,30 @@
+Project was done in a one week of time, As a social media project from Propulsion Academy exercises. Not fully done still in process to be created and fully functional.
+
+# Endpoints
+
+Registration
+
+ api/auth/registration/ - POST: Register a new user by asking for an email (send email validation code)
+ api/auth/registration/validation/ - POST: Validate a new registered user with a validation code sent by email
+ 
+ Auth
+ 
+ api/auth/token/ - POST: Get a new JWT by passing username and password
+ 
+ Me
+ 
+ api/users/me/ - GET: Get logged in user’s profile (as well as private information like email, etc.)
+
+Posts
+
+api/social/posts/ - POST: user can create a new post by sending post data.
+api/social/posts/ - GET: lists all the posts of all users in chronological order
+
+Friends
+
+api/users/ - GET: Get all the users
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
