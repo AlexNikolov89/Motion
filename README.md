@@ -1,4 +1,28 @@
-Project was done in a one week of time, As a social media project from Propulsion Academy exercises. Not fully done still in process to be created and fully functional.
+# Screenshots
+
+# Login
+![motion_login](https://user-images.githubusercontent.com/66255010/114710370-eb32db80-9d2d-11eb-99b1-c8f970ffbaeb.png)
+
+# Sign Up
+![Sign Up](https://user-images.githubusercontent.com/66255010/114710637-4238b080-9d2e-11eb-87ea-5a340f8b846a.png)
+
+# Verification
+![Verification](https://user-images.githubusercontent.com/66255010/114710663-4a90eb80-9d2e-11eb-8412-2b7685dfdb83.png)
+
+# User Feeds
+![motion_homepage](https://user-images.githubusercontent.com/66255010/114710775-66948d00-9d2e-11eb-9c98-3da7cb8c8181.png)
+
+# Create new Post Modal pop up
+![create post modal](https://user-images.githubusercontent.com/66255010/114710793-6f855e80-9d2e-11eb-982f-a532c5406873.png)
+
+# User Profile
+![motion_userprofile](https://user-images.githubusercontent.com/66255010/114710846-86c44c00-9d2e-11eb-8444-30d03f5a16ec.png)
+
+# User Profile 2
+![motion_userprofile2](https://user-images.githubusercontent.com/66255010/114710889-917ee100-9d2e-11eb-8535-8ac3cf8f9165.png)
+
+
+# Individual project, was done in a one week of time, As a social media project from Propulsion Academy exercises.
 
 # Endpoints
 
@@ -24,6 +48,13 @@ Friends
 
 api/users/ - GET: Get all the users
 
+
+# Used Technologies
+![js-logo](https://user-images.githubusercontent.com/66255010/114711126-e0c51180-9d2e-11eb-8ad0-f504d96f1f72.jpg)
+
+![react-redux](https://user-images.githubusercontent.com/66255010/114711157-eae71000-9d2e-11eb-9215-b98a0afa8a38.png)
+
+![styled components](https://user-images.githubusercontent.com/66255010/114711181-f1758780-9d2e-11eb-8d09-af1c85dbc48c.png)
 
 # Getting Started with Create React App
 
