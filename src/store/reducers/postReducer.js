@@ -4,20 +4,25 @@ const initialState = {
     posts: [],
 }
 
-export default function postReducer (state=initialState, action) {
+export const postReducer = (state=initialState, action) => {
     switch (action.type) {
-        case GET_POSTS_ALL: {
-            return {...state, posts: action.payload}
-        }
+        case GET_POSTS_ALL: 
+            return {
+                ...state, 
+                posts: action.payload
+            }
         case CREATE_NEW_POST: {
-            return {...state, posts: [action.payload, ...state.posts]}
+            return {
+                ...state, 
+                posts: action.payload
+            }
         }
         case DELETE_POST: {
-            const newState = Obect.assing({}, state);
-            newState = state.findIndex(post => {
-                return post.id == action.post.id
-            })
-            return newState
+            // const newState = Obect.assing({}, state);
+            // newState = state.findIndex(post => {
+            //     return post.id == action.post.id
+            // })
+            // return newState
         }
         default:
             return state

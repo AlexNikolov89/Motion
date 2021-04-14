@@ -7,15 +7,15 @@ import {AvatarContainer, Top, Bottom,
 import avatar from '../../assets/images/users/jennifer.png'
 import { useState } from 'react/cjs/react.development'
 
-const UserDetails = ({userInfo}) => {
-    console.log(userInfo)
+const UserDetails = ({userData}) => {
+    console.log(userData)
 
     return (
         <UserInfoContainer>
             <AvatarContainer>
                 <Top>
                     <Avatar src={avatar} />
-                    <Username>{userInfo.first_name} {userInfo.last_name}</Username>
+                    <Username>{userData.first_name} {userData.last_name}</Username>
                     <UserLocation>Winterthur, Switzerland</UserLocation>
                 </Top>
                 <Bottom>
@@ -31,7 +31,7 @@ const UserDetails = ({userInfo}) => {
                                 ipsum exercitationem possimus sed quaerat voluptas tempora
                         </About>
                         <Title>Email</Title>
-                        <Email>{userInfo.email}</Email>
+                        <Email>{userData.email}</Email>
                     </RightSide>
                     <LeftSide>
                         <Title>Things I like</Title>
@@ -46,23 +46,23 @@ const UserDetails = ({userInfo}) => {
                 </AboutTop>
                 <AboutBottom>
                     <Posts>
-                        <Amount>{userInfo.amount_of_posts}</Amount>
+                        <Amount>{userData.amount_of_posts}</Amount>
                         <span>Posts</span>
                     </Posts>
                     <Likes>
-                        <Amount>{userInfo.amount_of_likes}</Amount>
+                        <Amount>{userData.amount_of_likes}</Amount>
                         <span>Likes</span>
                     </Likes>
                     <Friends>
-                        <Amount>{userInfo.amount_of_friends}</Amount>
+                        <Amount>{userData.amount_of_friends}</Amount>
                         <span>Friends</span>
                     </Friends>
                     <Followers>
-                        <Amount>{userInfo.amount_of_followers}</Amount>
+                        <Amount>{userData.amount_of_followers}</Amount>
                         <span>Followers</span>
                     </Followers>
                     <Following>
-                        <Amount>{userInfo.amount_following}</Amount>
+                        <Amount>{userData.amount_following}</Amount>
                         <span>Following</span>
                     </Following>
                 </AboutBottom>

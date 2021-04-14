@@ -2,7 +2,7 @@ import {USER_REGISTRATION} from './actionTypes';
 import {baseUrl} from '../baseUrl';
 
 export const validationAction = (userData) => async dispatch => {
-    const url = `${baseUrl}/auth/registration/validation`;
+    const url = `${baseUrl}/auth/registration/validation/`;
     const config = {
         method: 'PATCH',
         headers: new Headers({ 'Content-Type': 'application/json' }),

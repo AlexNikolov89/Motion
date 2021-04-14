@@ -6,21 +6,24 @@ import {PostsWrapper} from '../style/Homepage';
 import Posts from '../components/Posts/Posts'
 import { useState } from 'react/cjs/react.development';
 import Spinner from '../components/Spinner/Spinner'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {postAction} from '../store/actions/postAction'
 
 const Homepage = () => {
     const dispatch = useDispatch();
-    const [posts, setPosts] = useState([]);
+    //const [posts, setPosts] = useState([]);
+    const posts = useSelector(state => state.postReducer.posts)
 
+    
     useEffect(() => {
         const fetchPosts = async () => {
         const data = await dispatch(postAction());
-        setPosts(data);
+        console.log(data)
 
         };
         fetchPosts()
     }, [])
+
         
     return (
         <Fragment>
@@ -28,7 +31,7 @@ const Homepage = () => {
             <SearchBar />
             <PostsWrapper>
                 <NewPost />
-                {posts.length ? posts.map(
+                {posts.length > 0 ? posts.map(
                     post => <Posts post={post} key={post.id} />
                     ) : <Spinner />}
             </PostsWrapper>

@@ -1,4 +1,4 @@
-import {FRIENDS, FLLOWERS, FOLLOWEES} from'../actions/actionTypes
+import {FRIENDS, FLLOWERS, FOLLOWEES} from'../actions/actionTypes'
 
 const initialState = {
     friends: [],

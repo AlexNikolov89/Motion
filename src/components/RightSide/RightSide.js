@@ -7,17 +7,16 @@ import {useDispatch, useSelector} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import {baseUrl} from '../../store/baseUrl';
 import {authAction, setUser} from '../../store/actions/authAction'
+import { useEffect } from 'react';
 
 const RightSide = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const token = useSelector(state => state.token)
+    const [email, setEmail] = useState('nikolov.aleksandra@hotmail.com')
+    const [password, setPassword] = useState('123456')
 
     const handleSubmit = e => {
-        e.preventDefault();
-        
+        e.preventDefault()
         const config = {
             method: 'POST',
             headers: new Headers ({
@@ -28,11 +27,16 @@ const RightSide = () => {
         fetch(`${baseUrl}/auth/token/`, config)
             .then(response => response.json())
             .then(data => {
-                //console.log(data)
+                console.log(data)
                 dispatch(authAction(data.access));
                 dispatch(setUser(data.user))
                 localStorage.setItem('token', data.access);
-                history.push('/homepage')
+                if(data.access) {
+                    history.push('/homepage')
+                } else {
+                    history.push('/login')
+                }
+                
             })
 
     }

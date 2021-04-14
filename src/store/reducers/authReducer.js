@@ -1,19 +1,23 @@
 import {SET_USER, USER_LOGIN, SET_TOKEN, USER_LOGOUT } from '../actions/actionTypes';
 
 const initialState = {
-    user: null,
+    user: [],
     token: null,
 }
 
 const authReducer = (state=initialState, action) => {
     switch (action.type) {
         case USER_LOGIN: {
-            const token = action.payload;
-            return {...state, token};
+            return {
+                ...state, 
+                token: action.payload
+            };
         }
         case 'USER_DATA': {
-            const user = action.payload;
-            return {...state, user }
+            return {
+                ...state, 
+                user: action.payload 
+            }
         }
         case USER_LOGOUT: {
             console.log('clear local storage');

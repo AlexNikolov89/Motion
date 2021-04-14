@@ -16,3 +16,4 @@ export const registrationAction = (email) => async dispatch => {
         payload: email
     })
 }
+
