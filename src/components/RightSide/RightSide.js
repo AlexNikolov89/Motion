@@ -12,8 +12,8 @@ import { useEffect } from 'react';
 const RightSide = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [email, setEmail] = useState('nikolov.aleksandra@hotmail.com')
-    const [password, setPassword] = useState('123456')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const handleSubmit = e => {
         e.preventDefault()
